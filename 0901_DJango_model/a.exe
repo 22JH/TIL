@@ -1,0 +1,277 @@
+- URL 분리
+  
+  - 만약 articles/라는 주소가 들어온다면 이후는 articles.urls에서 처리하겠다.
+    
+    - from django.url import include
+    
+    - path('articles/', include('articles.urls'))
+    
+    
+  
+  - articles 에서 urls.py 생성
+  
+  - 장고에서 path함수 import
+    
+    - from django.urls import path
+  
+  - 'urlpatterns'라는 빈 리스트 생성
+  
+  - 현제 디렉토리에서 views import
+    
+    - from . import views
+  
+  - 앱 이름 설정 (폴더 이름이랑 랑 동일 할 필요없지만 권장)
+    
+    - app_name = 'articles'
+  
+  - ```python
+    from django.urls import path
+    from . import views
+    
+    app_name = 'articles'
+    urlpatterns = []
+    ```
+
+
+
+- base 템플릿 만들기
+  
+  - config 의 settings.py 에서 `'DIRS': [BASE_DIR] / 'templates'`로 수정
+
+- namespace
+  
+  - 주소에 대한 이름(변수 같은) 정의
+
+
+
+
+
+- 쿼리 스트링 파라미터
+  
+  - 사용자의 입력
+
+- variable routing (주소를 변수로 사용)
+  
+  - 주소이동 할 때 path의 일부분을 변수로 사용
+  
+  - 사용자의 입력이 필요 없을 때
+  
+  - path 주소를 만들 때 '<이름>'로 만들어 주면 됨 (변수처럼 활용됨)
+    
+    - `path('hello/<name>/<age>/', views.hello, name='hello')`
+  
+  - views 에서 request 인자 뒤에 변수로 들어옴 (여러개 사용 가능)
+    
+    - def OOO(requset, name, age)
+  
+  - 디폴트 값은 str
+    
+    - int  `path('hello/\<int:age>/')`
+    
+    - slug
+    
+    - uuid
+    
+    - path
+  
+  - 사용시 주의점
+    
+    - 설정 이름과 받는 이름이 같아야 한다.
+    
+    - variable routing을 썻다면 반드시 받아줘야한다.
+    
+    - variable routing이 적용된 주소에는 반드시 값이 들어가 있어야 한다.
+
+
+
+
+
+
+
+- makemigrations
+  
+  - class로 만든 것을 DB로 만들기 위해 변환하는 과정
+  
+  - 설계도를 생성하는 것
+  
+  - migrations 내부 폴더에 저장됨
+
+- migrate
+  
+  - 실제 DB에 적용 시키는 명령어
+
+- showmigrations
+  
+  - migrations 파일들이 제대로 migrate됐는지 확인
+
+- sqlmigrate 앱이름 번호
+  
+  - SQL문으로 어떻게 변환되었는지 확인
+
+
+
+- DateTimeField()
+  
+  - auto_now_add
+    
+    - 생성 시간
+    
+    - `created_at = models.DateTimeField(auto_now_add=True)`
+    
+    - ana
+  
+  - auto_now
+    
+    - 수정 일자
+    
+    - `updated_at = models.DateTimeField(auto_now=True)`
+    
+    - an
+
+
+
+- shell
+  
+  - orm을 바로바로 확인하기 위해 사용
+  
+  - shell
+    
+    - 기본으로 제공
+  
+  - shell_plus
+    
+    - django_extension 설치후 사용
+    
+    - import를 자동으로 해줌
+
+
+
+
+
+- Queryset API
+  
+  - (Model class) + (Manager) + (Queryset API)
+    
+    - Article.objects.all() -> all()
+  
+  - Queryset이란
+    
+    - DB에서 전달받은 객체(데이터) 모음 (유사 리스트, 음수 인덱스 사용 불가)
+    
+    - 필터를 거나 정렬 등 Queryset API 사용 가능하다.
+    
+    - 하나만 반환시키는 명령어를 쓴다면 Queryset이 아니라 class의 인스턴스 형태로 반환됨 (ex : `.get()`)
+
+
+
+
+
+- CRUD
+  
+  - CREATE
+    
+    - `<form action="{% url 'articles:create' %}">` 
+      
+      - create라는 곳으로 현재 내용을 보냄
+    
+    - create의 데이터는 request에 담겨져있음
+      
+      - 형식의 기본값을 'GET' 형식
+      
+      - request.GET
+    
+    - 쿼리라는 형식 (유사 딕셔너리)
+      
+      - `get()` 사용가능
+      
+      - `get('이름')` 에서 `이름`은 
+        
+        `<input type="text" id="title" name="title">`
+        
+        에서 `name`에 저장된 값
+    
+    - DB를 저장하기 위해 `class` 만들기
+      
+      - `models.py`에 class 만들기
+      
+      - `class 이름(models.Model):`
+        
+        ```python
+            title = models.CharField(max_length=255)
+            content = models.TextField()
+        ```
+        
+        - charField : 글 길이를 제한 둘 때 (반드시 `max_length`를 설정해야함)
+        
+        - TextField : 글 길이 제한 X
+    
+    - `python manage.py makemigrations` 설계도 생성
+  
+  - 3가지 방법이 있음
+    
+    - 1번
+      
+      - views.py 에서 model에 저장한 class를 import
+      
+      - 인스턴스 생성    title = request.GET.get('title')
+        
+            content = request.GET.get('content')
+      
+      - ```python
+        post = Post()
+        post.title = title
+        post.content = request.Get.get('content') #이처럼 바로 저장해도
+        post.save()
+        ```
+      
+      - post.save() 호출
+    
+    - 2번
+      
+      - Post클래스의 인스턴스를 생성
+      
+      - `post = Post(title=title, content=content)`
+      
+      - `post.save()`
+    
+    - 3번
+      
+      - 메서드 이용
+      
+      - `Post.objects.create(title=title, content=content)`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
