@@ -1,0 +1,160 @@
+{
+  "main": {
+    "id": "7eececdc0b36bf1f",
+    "type": "split",
+    "children": [
+      {
+        "id": "1f2ce35840860558",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "36feecaaf43565f7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "무제노트.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "33f923b7c86e5bd0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "무제파일.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c72c828f9d45f572",
+    "type": "split",
+    "children": [
+      {
+        "id": "50e36e219007c849",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fc61acf53b258fda",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1f17f026d53b5276",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "125f3a396fee402d",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "c5d2e1f2788b885b",
+    "type": "split",
+    "children": [
+      {
+        "id": "8799ed420ca41217",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "54767e33484395a2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "무제노트.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f23dd41b9ddd951b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "무제노트.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9a02412ca17940d8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "94b3ffefc8b9215a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "무제노트.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "36feecaaf43565f7",
+  "lastOpenFiles": [
+    "무제파일.md",
+    "무제노트.md"
+  ]
+}
