@@ -8,27 +8,11 @@
         "type": "tabs",
         "children": [
           {
-            "id": "36feecaaf43565f7",
+            "id": "ef26f1d2a49cc2ea",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "무제노트.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "33f923b7c86e5bd0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "무제파일.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -98,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "무제노트.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +98,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "무제노트.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,9 +119,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "무제노트.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -149,11 +129,9 @@
     "width": 300,
     "collapsed": true
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
-  "active": "36feecaaf43565f7",
+  "active": "ef26f1d2a49cc2ea",
   "lastOpenFiles": [
+    "무제파일 1.md",
     "무제파일.md",
     "무제노트.md"
   ]
