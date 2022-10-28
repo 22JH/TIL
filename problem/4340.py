@@ -123,7 +123,7 @@ for t in range(1, int(input()) + 1):
     res = 10e9
     visit = [[[10000000, 10000000, 10000000, 10000000, 0] for x in range(N)] for x in range(N)]
     flag = 1
-    # dfs(1, N - 1, N - 1, 0)
+    dfs(1, N - 1, N - 1, 0)
     visit = [[[10000000, 10000000, 10000000, 10000000, 0] for x in range(N)] for x in range(N)]
     dfs2(0, 0, 0, 0)
     print(f'#{t} {res}')
