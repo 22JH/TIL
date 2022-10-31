@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "1f2ce35840860558",
+        "id": "72735129126c71d3",
         "type": "tabs",
         "children": [
           {
-            "id": "ef26f1d2a49cc2ea",
+            "id": "e09570eb9a891fad",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,7 +129,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "ef26f1d2a49cc2ea",
+  "active": "e09570eb9a891fad",
   "lastOpenFiles": [
     "무제파일 1.md",
     "무제파일.md",
