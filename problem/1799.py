@@ -1,60 +1,81 @@
-import sys
-sys.stdin = open('1799.txt')
-
-def max_b(y, x, cnt):
-    global res
+def find_yx(y, x, black):
     while y < N:
         while x < N:
-            if arr[y][x] == 1:
-                cnt += 1
-            x += 1
-        x = 0
+            if visit[y][x] == 0 and arr[y][x] == 1:
+                return y, x
+            x += 2
+        if black:
+            if y % 2 == 0:
+                x = 0
+            else:
+                x = 1
+        else:
+            if y % 2 == 0:
+                x = 1
+            else:
+                x = 0
         y += 1
-    if res >= cnt:
-        return 1
+    return -1, -1
 
-def is_valid(y, x):
+def check(y, x, flag):
     i = 1
     while y - i >= 0 and x - i >= 0:
-        if visit[y - i][x - i] == 1:
-            return 0
+        if flag:
+            visit[y - i][x - i] += 1
+        else:
+            visit[y - i][x - i] -= 1
         i += 1
 
     i = 1
-    while y - i < N and x + i < N:
-        if visit[y - i][x + i] == 1:
-            return 0
+    while y - i >= 0 and x + i < N:
+        if flag:
+            visit[y - i][x + i] += 1
+        else:
+            visit[y - i][x + i] -= 1
         i += 1        
-    return 1
 
-def f(y, x, cnt):
+    i = 1
+    while y + i < N and x + i < N:
+        if flag:
+            visit[y + i][x + i] += 1
+        else:
+            visit[y + i][x + i] -= 1
+        i += 1
+
+    i = 1
+    while y + i < N and x - i >= 0:
+        if flag:
+            visit[y + i][x - i] += 1
+        else:
+            visit[y + i][x - i] -= 1
+        i += 1
+
+
+def f(y, x, cnt, black):
     global res
-    if y == N and x == 0:
+    if y == -1 and x == -1:
         res = max(res, cnt)
         # for i in visit:
         #     print(i)
         # print(res)
         return
-    if max_b(y, x, cnt):
-        return
-    if arr[y][x] == 1:
-        if is_valid(y, x):
-            visit[y][x] = 1
-            if x == N - 1:
-                f(y + 1, 0, cnt + 1)
-            else:
-                f(y, x + 1, cnt + 1)
-            visit[y][x] = 0
-    if x == N - 1:
-        f(y + 1, 0, cnt)
-    else:
-        f(y, x + 1, cnt)
+    visit[y][x] += 1 
+    check(y, x, 1)
+    dy, dx = find_yx(y, x, black)
+    f(dy, dx, cnt + 1, black)
+    check(y, x, 0)
+    visit[y][x] -= 1
+    dy, dx = find_yx(y, x + 2, black)
+    f(dy, dx, cnt, black)
 
 N = int(input())
 arr = [list(map(int, input().split())) for x in range(N)]
 visit = [[0] * N for x in range(N)]
 res = 0
+dy, dx = find_yx(0, 0, 0)
+f(dy, dx, 0, 0)
+dy, dx = find_yx(0, 1, 1)
+f(dy, dx, res, 1)
 
-f(0, 0, 0)
 
 print(res)
